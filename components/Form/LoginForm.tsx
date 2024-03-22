@@ -60,7 +60,7 @@ const LoginForm = () => {
          <div className="">
            
               <div className='my-8'>
-                  <Field type="email" name='email' className="focus:outline-none border-b bg-white text-black w-full pb-2 border-sky-400 placeholder-gray-500 "  placeholder="Email Adress "/>
+                  <Field type="email" name='email' className="focus:outline-none border-b bg-white text-black w-full pb-2 border-sky-400 placeholder-gray-500 "  placeholder="Email Address "/>
                   <ErrorMessage
                 name="email"
                 component="div"
