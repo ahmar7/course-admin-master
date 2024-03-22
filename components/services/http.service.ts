@@ -8,7 +8,7 @@ export const useAxios = () => {
 
 
   const instance = axios.create({
-    baseURL: "https://www.underwritingacademy.com.au/api/v1",
+    baseURL: "https://artisian-academy-server.onrender.com/api/v1",
   });
 
   instance.interceptors.response.use(
