@@ -8,7 +8,7 @@ export const useAxios = () => {
 
 
   const instance = axios.create({
-    baseURL: 'http://localhost:4000/api/v1'
+    baseURL: 'https://artisian-academy-admin.vercel.app/api/v1'
   })
 
   instance.interceptors.response.use(
