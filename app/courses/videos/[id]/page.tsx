@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 
-import VideoPage from '@/templates/VideoPage  /index'
+import VideoPage from '@/templates/VideoPage/index'
 
 const Video: NextPage = ({params}:any) => {
     const { id } = params
