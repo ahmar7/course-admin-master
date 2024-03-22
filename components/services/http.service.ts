@@ -8,8 +8,8 @@ export const useAxios = () => {
 
 
   const instance = axios.create({
-    baseURL: 'https://artisian-academy-admin.vercel.app/api/v1'
-  })
+    baseURL: "https://www.underwritingacademy.com.au/api/v1",
+  });
 
   instance.interceptors.response.use(
     (response) => response,
