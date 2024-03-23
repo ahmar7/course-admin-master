@@ -22,6 +22,7 @@ const Details = ({}: DetailsProps) => (
                 alt=""
             />
         </div>
+        {/* new */}
     </div>
 );
 
