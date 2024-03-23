@@ -62,7 +62,7 @@ const RegistationFrom = () => {
 
              </div>
               <div>
-                  <Field type="email" name='email' className="focus:outline-none border-b bg-white text-black w-full pb-2 border-sky-400 placeholder-gray-500 my-8"  placeholder="Eamil Address "/>
+                  <Field type="email" name='email' className="focus:outline-none border-b bg-white text-black w-full pb-2 border-sky-400 placeholder-gray-500 my-8"  placeholder="Eamil Adress "/>
                   <ErrorMessage
                 name="email"
                 component="div"
