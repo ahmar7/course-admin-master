@@ -71,9 +71,9 @@ export default function UpdateVideoModel({id,item}:any) {
     <div>
       <button
         onClick={() => setIsModal(true)}
-        className='bg-blue-700 px-2 !text-white  rounded'
+        className="bg-blue-700 px-2 !text-white  rounded"
       >
-      Edit
+        Edit
       </button>
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
@@ -113,7 +113,9 @@ export default function UpdateVideoModel({id,item}:any) {
               <div className="inline-block w-full max-w-2xl px-6 py-7 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl sm:my-5 sm:align-middle sm:max-w-7xl">
                 <div className="flex w-full  justify-between items-center">
                   <div></div>
-                  <h1 className="font-headingBold !text-black text-3xl">Add New Course</h1>
+                  <h1 className="font-headingBold !text-black text-3xl">
+                    Add New Course
+                  </h1>
                   <Image
                     src="/images/cross-gray.png"
                     alt=""
@@ -129,46 +131,43 @@ export default function UpdateVideoModel({id,item}:any) {
                   initialValues={{
                     title: item.title,
                     file: null,
-                    description:item.description,
-                   
-                  
+                    description: item.description,
                   }}
                   validationSchema={validationSchema}
                   onSubmit={async (values) => {
-                    let formData = new FormData();   
-                    const input = videoInputRef.current
-                    if (input && values.file && input.files && input.files.length > 0) {
-                      const videoFile: any = input.files[0]
-                      const videoUrl = URL.createObjectURL(videoFile)
-                      const videoElement = document.createElement('video')
-                      videoElement.src = videoUrl
-                      videoElement.load()
+                    let formData = new FormData();
+                    const input = videoInputRef.current;
+                    if (
+                      input &&
+                      values.file &&
+                      input.files &&
+                      input.files.length > 0
+                    ) {
+                      const videoFile: any = input.files[0];
+                      const videoUrl = URL.createObjectURL(videoFile);
+                      const videoElement = document.createElement("video");
+                      videoElement.src = videoUrl;
+                      videoElement.load();
 
-                      videoElement.addEventListener('loadeddata', async () => {
+                      videoElement.addEventListener("loadeddata", async () => {
                         const posterImageBlob = await extractPosterFromVideo(
                           videoElement
-                        )
-                        if(values.file)
-                        {
-                          formData.append('file', values.file); 
+                        );
+                        if (values.file) {
+                          formData.append("file", values.file);
                         }
-                      
-                        // formData.append('image', posterImageBlob); 
-                        formData.append('title', values.title);
-                        formData.append('description', values.description);
-                        mutation.mutate(formData)
+
+                        // formData.append('image', posterImageBlob);
+                        formData.append("title", values.title);
+                        formData.append("description", values.description);
+                        mutation.mutate(formData);
                         // formData.set('poster', posterImageBlob)
-                 
-                      })
-                    } else{
-                        formData.append('title', values.title);
-                        formData.append('description', values.description);
-                        mutation.mutate(formData)
+                      });
+                    } else {
+                      formData.append("title", values.title);
+                      formData.append("description", values.description);
+                      mutation.mutate(formData);
                     }
-
-
- 
-
                   }}
                 >
                   {({ setFieldValue, setFieldTouched }) => (
@@ -190,8 +189,7 @@ export default function UpdateVideoModel({id,item}:any) {
                             className="error text-red-500 text-sm font-headingBook pt-2"
                           />
                         </div>
-                     
-                     
+
                         <div className="w-full lg:w-1/2 mt-5">
                           <p className="font-headingBold text-lg pb-2 text-[#575656]">
                             Video description
@@ -221,9 +219,9 @@ export default function UpdateVideoModel({id,item}:any) {
                                 ref={videoInputRef}
                                 // accept="video/mp4,video/x-m4v,video/*"
                                 onChange={(e: any) => {
-                                  setFieldValue('file', e.target.files[0])
-                                  setFileName(e.target?.files[0]?.name)
-                                  setFieldTouched('file', false)
+                                  setFieldValue("file", e.target.files[0]);
+                                  setFileName(e.target?.files[0]?.name);
+                                  setFieldTouched("file", false);
                                 }}
                                 className="hidden"
                               />
@@ -234,7 +232,7 @@ export default function UpdateVideoModel({id,item}:any) {
                                 height={40}
                               />
                               <p className="ml-2 text-sm font-normal">
-                                {fileName ? fileName : 'Add Image'}
+                                {fileName ? fileName : "Add Video"}
                               </p>
                             </div>
                           </label>
@@ -245,7 +243,7 @@ export default function UpdateVideoModel({id,item}:any) {
                           />
                         </div>
 
-                        {mutation.isLoading  ? (
+                        {mutation.isLoading ? (
                           <button
                             disabled
                             className="!bg-primary mt-7 rounded-lg text-priamry font-headingBold text-xl flex justify-center items-center h-12 w-full lg:w-1/2"
@@ -270,5 +268,5 @@ export default function UpdateVideoModel({id,item}:any) {
         </Dialog>
       </Transition>
     </div>
-  )
+  );
 }

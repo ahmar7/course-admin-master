@@ -231,7 +231,7 @@ export default function CreateVideoModal({id}:any) {
                                 height={40}
                               />
                               <p className="ml-2 text-sm font-normal">
-                                {fileName ? fileName : 'Add Image'}
+                                {fileName ? fileName : 'Add Video'}
                               </p>
                             </div>
                           </label>
