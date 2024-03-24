@@ -99,7 +99,7 @@ const Settings = ({setVisibleModal}: SettingsProps) => {
           const result = response?.data;
           console.log(result,"result")
       
-          toast.success('Successful chnage password');
+          toast.success('Successful Change password');
           setVisibleModal(false)
         //   router.push('/loading');
         })
@@ -235,7 +235,7 @@ const Settings = ({setVisibleModal}: SettingsProps) => {
                   
                 </div>
                 <button onClick={()=>handleChangeSubmit()} className="btn-black px-8 md:w-full">
-                    Chnage Password
+                    Change Password
                 </button>
             </div>}
         </div>
