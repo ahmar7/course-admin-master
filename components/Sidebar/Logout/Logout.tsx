@@ -21,8 +21,7 @@ export default function Logout({open,setOpen}:any) {
                       </Dialog.Title>
                       <div className="mt-2">
                         <p className="text-sm text-gray-500">
-                          Are you sure you want to Logout your account? All of your data will be permanently
-                          removed. This action cannot be undone.
+                          Are you sure you want to Logout your account? 
                         </p>
                       </div>
                     </div>
