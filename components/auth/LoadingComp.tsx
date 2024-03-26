@@ -1,9 +1,7 @@
-'use client';
-import { useEffect } from 'react';
-import { useRouter } from "next/navigation";// Corrected import
+import { useEffect, useState } from 'react';
+import { useRouter } from "next/navigation"; // Make sure this import is correct, usually it's from 'next/router'
 import { useSelector } from 'react-redux';
 
-// Correct representation of your Redux state shape
 interface RootState {
   authReducer: {
     token: string | null;
@@ -12,25 +10,35 @@ interface RootState {
 
 const LoadingComp = () => {
   const router = useRouter();
-  // Directly access the token from the Redux state
   const token = useSelector((state: RootState) => state.authReducer.token);
+
+  // Introduce a state to track if the initial check is done
+  const [isInitialCheckDone, setIsInitialCheckDone] = useState(false);
 
   useEffect(() => {
     // Directly handle redirection inside useEffect
     const handleRedirection = () => {
       const destinationPath = token ? '/dashboard' : '/login';
-      // Ensure we're not already at the destination before pushing to avoid unnecessary navigation
-      if (destinationPath) {
+      // Ensure we're not already at the destination and that the initial check is completed
+      if (destinationPath && isInitialCheckDone) {
         router.push(destinationPath);
       }
     };
 
-    // Call handleRedirection after a 2-second delay to show the loader
-    const timer = setTimeout(handleRedirection, 2000);
+    // Initially, we might not have the token status ready, wait for it
+    if (!isInitialCheckDone) {
+      // Mock an async check, e.g., verifying the token or waiting for some state update
+      // This could be replaced with an actual async operation if needed
+      const timer = setTimeout(() => {
+        setIsInitialCheckDone(true); // Indicate that the initial token check is complete
+      }, 500); // Adjust the delay based on your application's needs
 
-    // Cleanup the timer if the component unmounts
-    return () => clearTimeout(timer);
-  }, [token, router]); // Include router in the dependency array as a best practice
+      return () => clearTimeout(timer);
+    }
+
+    // Once the initial check is done, decide on redirection
+    handleRedirection();
+  }, [token, router, isInitialCheckDone]);
 
   // Render the Loader while handling redirection
   return (

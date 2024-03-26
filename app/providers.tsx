@@ -21,7 +21,7 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
       })
     return (
         <Provider store={store()}>
-          <Auth>
+       
           <ToastContainer
 position="top-right"
 autoClose={5000}
@@ -44,7 +44,7 @@ theme="light"
             </CacheProvider>
             </QueryClientProvider>
             <ToastContainer />
-            </Auth>
+            
         </Provider>
     );
 }
