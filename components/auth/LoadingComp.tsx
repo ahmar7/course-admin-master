@@ -1,3 +1,4 @@
+'use client'
 import { useEffect, useState } from 'react';
 import { useRouter } from "next/navigation"; // Make sure this import is correct, usually it's from 'next/router'
 import { useSelector } from 'react-redux';
