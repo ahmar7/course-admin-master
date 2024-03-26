@@ -37,14 +37,14 @@ const LoginForm = () => {
             if(result?.user?.role=='admin'){
               dispatch(setUserDetails({ token: result?.token, userData: result?.user }));
               // toast.success('Login Success');
-              router.push('/loading');
+       
             }else
             {
               toast.error('only admin access');
               setIsLoading(false);
 
             }
-           
+            router.push('/loading');
           })
           .catch((error) => {
             const errorMessage = error.response?.data?.msg || 'An error occurred';
