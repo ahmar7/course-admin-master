@@ -36,7 +36,7 @@ const LoginForm = () => {
             const result = response.data;
             if(result?.user?.role=='admin'){
               dispatch(setUserDetails({ token: result?.token, userData: result?.user }));
-              // toast.success('Login Success');
+              toast.success('Login Success');
        
             }else
             {
@@ -45,6 +45,7 @@ const LoginForm = () => {
 
             }
             router.push('/loading');
+         
           })
           .catch((error) => {
             const errorMessage = error.response?.data?.msg || 'An error occurred';
