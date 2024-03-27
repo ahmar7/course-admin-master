@@ -36,7 +36,7 @@ const LoginForm = () => {
             const result = response.data;
             if (result?.user?.role == 'admin') {
               dispatch(setUserDetails({ token: result?.token, userData: result?.user }));
-              toast.success('Login Success');
+              // toast.success('Login Success');
             
               // Delay the route push by 1 second to ensure the Redux store is updated
               setTimeout(() => {
