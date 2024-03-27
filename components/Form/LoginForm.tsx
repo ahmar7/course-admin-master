@@ -34,17 +34,20 @@ const LoginForm = () => {
         post('/login', values)
           .then((response) => {
             const result = response.data;
-            if(result?.user?.role=='admin'){
+            if (result?.user?.role == 'admin') {
               dispatch(setUserDetails({ token: result?.token, userData: result?.user }));
               toast.success('Login Success');
-       
-            }else
-            {
+            
+              // Delay the route push by 1 second to ensure the Redux store is updated
+              setTimeout(() => {
+                router.push('/loading');
+              }, 1000);
+            } else {
               toast.error('only admin access');
               setIsLoading(false);
-
+              // Consider also delaying this action if necessary, similar to the above setTimeout
             }
-            router.push('/loading');
+    
          
           })
           .catch((error) => {
